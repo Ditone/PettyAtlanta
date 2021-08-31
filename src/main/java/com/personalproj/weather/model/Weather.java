@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Weather {
 
-    public Weather (){}
+    public Weather (){
+        String response = "New Weather";
+    }
 
     @JsonProperty("date")
     public String date;
