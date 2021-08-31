@@ -1,16 +1,98 @@
-//package com.personalproj.weather.model;
-//
-//import org.springframework.context.annotation.Bean;
-//
-//import javax.annotation.ManagedBean;
-//import javax.persistence.Entity;
-//
-//@ManagedBean
-//public interface Weather {
-//    String city = "";
-//    Integer high_degf = 0;
-//    Integer low_degf = 0;
-//    Integer high_degc = 0;
-//    Integer low_degc = 0;
-//
-//}
+package com.personalproj.weather.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Weather {
+
+    public Weather (){}
+
+    @JsonProperty("date")
+    public String date;
+
+    @JsonProperty("maxtempC")
+    public Integer maxTempC;
+
+    @JsonProperty("maxtempF")
+    public Integer maxTempF;
+
+    @JsonProperty("mintempC")
+    public Integer minTempC;
+
+    @JsonProperty("mintempF")
+    public Integer minTempF;
+
+    @JsonProperty("avgtempC")
+    public Integer avgTempC;
+
+    @JsonProperty("avgtempF")
+    public Integer avgTempF;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Integer getMaxTempC() {
+        return maxTempC;
+    }
+
+    public void setMaxTempC(Integer maxTempC) {
+        this.maxTempC = maxTempC;
+    }
+
+    public Integer getMaxTempF() {
+        return maxTempF;
+    }
+
+    public void setMaxTempF(Integer maxTempF) {
+        this.maxTempF = maxTempF;
+    }
+
+    public Integer getMinTempC() {
+        return minTempC;
+    }
+
+    public void setMinTempC(Integer minTempC) {
+        this.minTempC = minTempC;
+    }
+
+    public Integer getMinTempF() {
+        return minTempF;
+    }
+
+    public void setMinTempF(Integer minTempF) {
+        this.minTempF = minTempF;
+    }
+
+    public Integer getAvgTempC() {
+        return avgTempC;
+    }
+
+    public void setAvgTempC(Integer avgTempC) {
+        this.avgTempC = avgTempC;
+    }
+
+    public Integer getAvgTempF() {
+        return avgTempF;
+    }
+
+    public void setAvgTempF(Integer avgTempF) {
+        this.avgTempF = avgTempF;
+    }
+
+    @Override
+    public String toString(){
+        return "ATL Weather {" +
+                "\nHighF: " + maxTempF +
+                "\nLowF: " + minTempF +
+                "\nHighC: " + maxTempC +
+                "\nLowC: " + minTempC +
+                "\nAvgF: " + avgTempF +
+                "\nAvgC: " + avgTempC +
+                "\n}";
+    }
+}

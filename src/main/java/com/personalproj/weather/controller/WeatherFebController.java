@@ -43,8 +43,9 @@ public class WeatherFebController {
     }
 
     //want this to use the url /api/v1/feb_temp/hotter to return a list of all cities with higher temps
-    @GetMapping("hotter")
-    public WeatherFeb findHotter(){
-        return weatherFebRepository.getHotter();
-    }
+//    @GetMapping()
+//    @RequestMapping("hotter")
+//    public WeatherFeb findHotter(){
+//        return
+//    }
 }
