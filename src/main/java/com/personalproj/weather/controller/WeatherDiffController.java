@@ -6,6 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -41,5 +42,20 @@ public class WeatherDiffController {
         BeanUtils.copyProperties(weatherDiff, existingWeatherDiff, "city_id");
         return weatherDiffRepository.save(existingWeatherDiff);
     }
+
+    //want this to use the url /api/v1/feb_temp/hotter to return a list of all cities with higher temps
+    @GetMapping()
+    @RequestMapping("/hotter")
+    public List<WeatherDiff> findHotter(){
+        return weatherDiffRepository.getHotter();
+    }
+
+    // usage in application: getRandomId = rand (findHotter.length) , call http://localhost:8080/api/v1/feb_temp/hotter/getRandomId
+    @GetMapping
+    @RequestMapping("/hotter/{id}")
+    public WeatherDiff findRandomHotter(@PathVariable int id){
+        return weatherDiffRepository.getHotter().get(id);
+    }
+
 
 }

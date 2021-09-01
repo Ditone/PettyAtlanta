@@ -1,13 +1,10 @@
 package com.personalproj.weather.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class Weather {
 
-    public Weather (){
-        String response = "New Weather";
-    }
+    public Weather (){}
 
     @JsonProperty("date")
     public String date;
@@ -29,6 +26,16 @@ public class Weather {
 
     @JsonProperty("avgtempF")
     public Integer avgTempF;
+
+    public Weather(String date, Integer maxTempC, Integer maxTempF, Integer minTempC, Integer minTempF, Integer avgTempC, Integer avgTempF) {
+        this.date = date;
+        this.maxTempC = maxTempC;
+        this.maxTempF = maxTempF;
+        this.minTempC = minTempC;
+        this.minTempF = minTempF;
+        this.avgTempC = avgTempC;
+        this.avgTempF = avgTempF;
+    }
 
     public String getDate() {
         return date;

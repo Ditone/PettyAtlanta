@@ -1,31 +1,40 @@
 package com.personalproj.weather.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity(name = "febuary_temp")
+import javax.persistence.*;
+
+@Entity(name = "february_temp")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class WeatherFeb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer city_id;
+    @Column(name = "city_id")
+    private Integer cityId;
+
+    @Column(name = "city")
     private String city;
-    private Integer high_degf;
-    private Integer low_degf;
-    private Integer high_degc;
-    private Integer low_degc;
+
+    @Column(name = "high_degf")
+    private Integer highDegF;
+
+    @Column(name = "low_degf")
+    private Integer lowDegF;
+
+    @Column(name = "high_degc")
+    private Integer highDegC;
+
+    @Column(name = "low_degc")
+    private Integer lowDegC;
 
     public WeatherFeb () {}
 
-    public WeatherFeb (String city, Integer high_degf, Integer low_degf, Integer high_degc, Integer low_degc) {
+    public WeatherFeb(Integer cityId, String city, Integer highDegF, Integer lowDegF, Integer highDegC, Integer lowDegC) {
         this.city = city;
-        this.high_degf = high_degf;
-        this.low_degf = low_degf;
-        this.high_degc = high_degc;
-        this.low_degc = low_degc;
+        this.highDegF = highDegF;
+        this.lowDegF = lowDegF;
+        this.highDegC = highDegC;
+        this.lowDegC = lowDegC;
     }
 
     public String getCity() {
@@ -36,43 +45,47 @@ public class WeatherFeb {
         this.city = city;
     }
 
-    public Integer getHigh_degf() {
-        return high_degf;
+    public Integer getHighDegF() {
+        return highDegF;
     }
 
-    public void setHigh_degf(Integer high_degf) {
-        this.high_degf = high_degf;
+    public void setHighDegF(Integer highDegF) {
+        this.highDegF = highDegF;
     }
 
-    public Integer getLow_degf() {
-        return low_degf;
+    public Integer getLowDegF() {
+        return lowDegF;
     }
 
-    public void setLow_degf(Integer low_degf) {
-        this.low_degf = low_degf;
+    public void setLowDegF(Integer lowDegF) {
+        this.lowDegF = lowDegF;
     }
 
-    public Integer getHigh_degc() {
-        return high_degc;
+    public Integer getHighDegC() {
+        return highDegC;
     }
 
-    public void setHigh_degc(Integer high_degc) {
-        this.high_degc = high_degc;
+    public void setHighDegC(Integer highDegC) {
+        this.highDegC = highDegC;
     }
 
-    public Integer getLow_degc() {
-        return low_degc;
+    public Integer getLowDegC() {
+        return lowDegC;
     }
 
-    public void setLow_degc(Integer low_degc) {
-        this.low_degc = low_degc;
+    public void setLowDegC(Integer lowDegC) {
+        this.lowDegC = lowDegC;
     }
 
-    public Integer getCity_id() {
-        return city_id;
-    }
-
-    public void setCity_id(Integer city_id) {
-        this.city_id = city_id;
+    @Override
+    public String toString() {
+        return "WeatherFeb{" +
+                "cityId=" + cityId +
+                ", city='" + city + '\'' +
+                ", highDegF=" + highDegF +
+                ", lowDegF=" + lowDegF +
+                ", highDegC=" + highDegC +
+                ", lowDegC=" + lowDegC +
+                '}';
     }
 }

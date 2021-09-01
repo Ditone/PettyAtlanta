@@ -12,6 +12,10 @@ public class AtlWeatherData {
 
     public AtlWeatherData() {}
 
+    public AtlWeatherData(List<Weather> weatherList) {
+        this.weatherList = weatherList;
+    }
+
     public List<Weather> getWeatherList() {
         return weatherList;
     }
