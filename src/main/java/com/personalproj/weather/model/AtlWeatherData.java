@@ -1,18 +1,20 @@
 package com.personalproj.weather.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-//json ignore unknown
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AtlWeatherData {
 
-    @JsonProperty("data")
+    @JsonProperty("weather")
     private List<Weather> weatherList;
 
     public AtlWeatherData() {}
 
-    public AtlWeatherData(List<Weather> weatherList) {
+    public AtlWeatherData(List<Weather> weatherList){
         this.weatherList = weatherList;
     }
 
@@ -23,4 +25,5 @@ public class AtlWeatherData {
     public void setWeatherList(List<Weather> weatherList) {
         this.weatherList = weatherList;
     }
+
 }
